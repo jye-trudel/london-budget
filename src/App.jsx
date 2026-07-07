@@ -10,7 +10,7 @@ import { getCurrentMonth, prevMonth, nextMonth, formatMonth, uid } from './utils
 export default function App() {
   const [tab, setTab] = useState('dashboard')
   const [month, setMonth] = useState(getCurrentMonth)
-  const [budgets, setBudgets] = useState({})
+  const [budgets, setBudgets] = useState(DEFAULT_BUDGETS)
   const [expenses, setExpenses] = useState([])
   const [loading, setLoading] = useState(true)
   const [syncError, setSyncError] = useState(null)
