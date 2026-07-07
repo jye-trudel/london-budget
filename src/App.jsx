@@ -182,6 +182,7 @@ export default function App() {
           <Dashboard
             budgets={budgets}
             monthExpenses={monthExpenses}
+            allExpenses={expenses}
             month={month}
             isCurrentMonth={isCurrentMonth}
             onQuickAdd={prefill => setModal({ mode: 'add', prefill })}

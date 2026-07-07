@@ -162,13 +162,11 @@ body {
   font-family: var(--font);
 }
 
-/* ─── Summary card (inverted) ─────────────────────────────────────────── */
+/* ─── Summary card (dark) ─────────────────────────────────────────────── */
 .summary-card {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
+  background: var(--card);
+  border-color: var(--border);
 }
-.summary-card .card-title { color: #555555; }
 
 .summary-row {
   display: flex;
@@ -177,43 +175,86 @@ body {
   margin-bottom: 16px;
 }
 .summary-col { text-align: center; flex: 1; }
-.sum-divider { width: 1px; height: 36px; background: #cccccc; }
+.sum-divider { width: 1px; height: 36px; background: var(--border); }
 .sum-label {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: #555555;
+  color: var(--muted);
   margin-bottom: 4px;
   font-family: var(--font);
 }
-.sum-val  { font-size: 20px; font-weight: 700; color: var(--bg); font-family: var(--font); }
-.sum-over { color: #dc2626; }
-.sum-good { color: #16a34a; }
+.sum-val  { font-size: 20px; font-weight: 700; color: var(--text); font-family: var(--font); }
+.sum-over { color: var(--accent-red); }
+.sum-good { color: var(--success); }
 
 .hero-bar-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .hero-bar {
   flex: 1;
   height: 6px;
-  background: #dddddd;
+  background: var(--border);
   border-radius: 3px;
   overflow: hidden;
 }
 .hero-fill { height: 100%; border-radius: 3px; transition: width .4s ease; }
-.hero-pct  { font-size: 11px; font-weight: 700; color: #555555; min-width: 32px; text-align: right; font-family: var(--font); }
+.hero-pct  { font-size: 11px; font-weight: 700; color: var(--muted); min-width: 32px; text-align: right; font-family: var(--font); }
 
 .safe-row {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  background: #f0f0f0;
+  background: #111111;
   border-radius: 6px;
   padding: 8px 12px;
 }
-.safe-label  { font-size: 12px; color: #555555; font-family: var(--font); }
-.safe-value  { font-size: 18px; font-weight: 700; color: var(--bg); margin-left: auto; font-family: var(--font); }
+.safe-label  { font-size: 12px; color: var(--muted); font-family: var(--font); }
+.safe-value  { font-size: 18px; font-weight: 700; color: var(--text); margin-left: auto; font-family: var(--font); }
 .safe-unit   { font-size: 12px; font-weight: 400; }
-.safe-days   { font-size: 11px; color: #888888; font-family: var(--font); }
-.over-alert  { font-size: 13px; font-weight: 700; color: #dc2626; justify-content: center; }
+.safe-days   { font-size: 11px; color: var(--muted); font-family: var(--font); }
+.over-alert  { font-size: 13px; font-weight: 700; color: var(--accent-red); justify-content: center; }
+
+/* ─── Dashboard two-column layout ─────────────────────────────────────── */
+.dashboard-cols {
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-left  { width: 100%; }
+.dashboard-right { width: 100%; }
+
+/* ─── Insights panel ──────────────────────────────────────────────────── */
+.insight-empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 32px 0;
+  font-family: var(--font);
+}
+.insight-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  font-family: var(--font);
+}
+.legend-line {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+.legend-dashed {
+  background: none !important;
+  border-top: 2px dashed;
+  height: 0;
+  border-radius: 0;
+}
 
 /* ─── Quick-add ───────────────────────────────────────────────────────── */
 .quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -707,12 +748,20 @@ body {
     align-items: flex-start;
   }
 
-  .dashboard,
   .expense-list,
   .categories-page,
   .settings-page {
     width: 100%;
     max-width: 660px;
+  }
+
+  .dashboard { width: 100%; max-width: none; }
+
+  .dashboard-cols {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 24px;
+    align-items: flex-start;
   }
 
   .quick-grid { grid-template-columns: repeat(4, 1fr); }
