@@ -148,7 +148,10 @@ export default function App() {
 
       <header className="app-header">
         <div className="header-left">
-          <span className="app-name">Flow Money</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" aria-label="Flow Money">
+            <rect width="32" height="32" rx="6" fill="#ffffff" />
+            <text x="9" y="23" fontFamily="Georgia,serif" fontSize="20" fontWeight="700" fill="#000000">F</text>
+          </svg>
         </div>
         <div className="header-right">
           <div className="month-nav">
