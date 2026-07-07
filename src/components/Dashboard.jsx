@@ -1,5 +1,5 @@
 import { fmt, barColor, daysLeftInMonth } from '../utils'
-import { COVERED_ITEMS, QUICK_ADDS } from '../seed'
+import { QUICK_ADDS } from '../seed'
 import CategoryBar from './CategoryBar'
 import SpendingChart from './SpendingChart'
 
@@ -106,16 +106,6 @@ export default function Dashboard({ budgets, monthExpenses, month, isCurrentMont
         month={month}
       />
 
-      {/* ── Covered items reference ── */}
-      <div className="card covered-card">
-        <div className="card-title">Already Covered — £0 for me</div>
-        <p className="covered-sub">Paid by parents / fixed costs not in my budget</p>
-        <div className="covered-chips">
-          {COVERED_ITEMS.map(item => (
-            <span key={item} className="covered-chip">{item}</span>
-          ))}
-        </div>
-      </div>
     </div>
   )
 }

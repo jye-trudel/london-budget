@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase, isConfigured } from './supabase'
 import Dashboard from './components/Dashboard'
 import ExpenseList from './components/ExpenseList'
+import Categories from './components/Categories'
 import Settings from './components/Settings'
 import AddExpenseModal from './components/AddExpenseModal'
 import { DEFAULT_BUDGETS } from './seed'
@@ -194,22 +195,25 @@ export default function App() {
             onDelete={deleteExpense}
           />
         )}
-        {tab === 'settings' && (
-          <Settings
+        {tab === 'categories' && (
+          <Categories
             budgets={budgets}
-            expenses={expenses}
             onUpdateBudget={updateBudget}
             onAddCategory={addCategory}
             onDeleteCategory={deleteCategory}
           />
         )}
+        {tab === 'settings' && (
+          <Settings expenses={expenses} />
+        )}
       </main>
 
       <nav className="bottom-nav" aria-label="Main navigation">
         {[
-          { id: 'dashboard', icon: '📊', label: 'Overview' },
-          { id: 'expenses', icon: '🧾', label: 'Expenses' },
-          { id: 'settings', icon: '⚙️', label: 'Settings' },
+          { id: 'dashboard',  icon: '📊', label: 'Overview' },
+          { id: 'expenses',   icon: '🧾', label: 'Expenses' },
+          { id: 'categories', icon: '🏷️', label: 'Categories' },
+          { id: 'settings',   icon: '⚙️', label: 'Settings' },
         ].map(({ id, icon, label }) => (
           <button
             key={id}
