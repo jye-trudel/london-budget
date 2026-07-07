@@ -114,8 +114,7 @@ export default function App() {
     return (
       <div className="app-setup">
         <div className="setup-card">
-          <div className="setup-icon">💷</div>
-          <h1>London Budget</h1>
+          <h1>Flow Money</h1>
           <p>Supabase is not connected yet.</p>
           <p>
             Copy <code>.env.example</code> to <code>.env.local</code> and add your{' '}
@@ -149,8 +148,7 @@ export default function App() {
 
       <header className="app-header">
         <div className="header-left">
-          <span className="app-icon" aria-hidden="true">💷</span>
-          <span className="app-name">London Budget</span>
+          <span className="app-name">Flow Money</span>
         </div>
         <div className="header-right">
           <div className="month-nav">
@@ -211,18 +209,17 @@ export default function App() {
 
       <nav className="bottom-nav" aria-label="Main navigation">
         {[
-          { id: 'dashboard',  icon: '📊', label: 'Overview' },
-          { id: 'expenses',   icon: '🧾', label: 'Expenses' },
-          { id: 'categories', icon: '🏷️', label: 'Categories' },
-          { id: 'settings',   icon: '⚙️', label: 'Settings' },
-        ].map(({ id, icon, label }) => (
+          { id: 'dashboard',  label: 'Overview' },
+          { id: 'expenses',   label: 'Expenses' },
+          { id: 'categories', label: 'Categories' },
+          { id: 'settings',   label: 'Settings' },
+        ].map(({ id, label }) => (
           <button
             key={id}
             className={tab === id ? 'nav-btn active' : 'nav-btn'}
             onClick={() => setTab(id)}
             aria-current={tab === id ? 'page' : undefined}
           >
-            <span className="nav-icon">{icon}</span>
             <span className="nav-label">{label}</span>
           </button>
         ))}
